@@ -1,0 +1,40 @@
+<apex:page >
+   <html>
+      <head>
+         <apex:includeLightning />
+      </head>
+      <body class="slds-scope">
+         <div id="flowContainer" />
+         <script>
+            var statusChange = function (event) {
+               if(event.getParam("status") === "FINISHED") {
+                  var outputVariables = event.getParam("outputVariables");
+                  var outputVar;
+                  for(outputVar in outputVariables) {
+                     if(outputVar.name === "redirect") {
+                        // Do something
+                     }
+                  }
+               }
+            };
+            $Lightning.use("c:lgtFlowTest", function() {
+               $Lightning.createComponent("lightning:flow", {},
+                  "flowContainer",
+                  function (component) {
+                     // Sets a value for the textVar input variable.
+                     var inputVariables = [
+                        {
+                           name : 'textVar',
+                           
+                        }
+                     ];
+                     // Starts an interview in the flowContainer div, and 
+                     // initializes the textVar variable.
+                     component.startFlow("TestFlowFormLGT", inputVariables);
+                  }
+               );
+            });
+         </script>
+      </body>
+   </html>
+</apex:page>

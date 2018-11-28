@@ -1,0 +1,16 @@
+<apex:page standardController="Account">
+    
+    <apex:form >
+    
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:pageBlock title="Referencable Customer Search Tool">
+        
+            <apex:pageBlockSection >
+            
+            <apex:inputField value="{!Account.AccountLook__c}"/>
+            </apex:pageBlockSection>
+            </apex:pageBlock>
+                
+    
+    </apex:form>
+</apex:page>

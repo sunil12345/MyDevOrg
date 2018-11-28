@@ -1,0 +1,39 @@
+<aura:component controller="AccountLookUpController" implements="force:appHostable,flexipage:availableForAllPageTypes">
+<!-- Attributes -->
+<aura:attribute name="recordId" type="Id" description="The current record Id to display" />
+<aura:attribute name="firstName" type="String" description="First Name of Contact" />
+<aura:attribute name="lastName" type="String" description="Last Name of Contact" />
+<aura:attribute name="contId" type="Id" description="ID of Created Contact" /> 
+<!-- Event handlers -->
+<!--aura:handler name="updateLookupIdEvent" event="c:UpdateLookupId" action="{!c.handleAccountIdUpdate}"/-->
+<aura:handler name="clearLookupIdEvent" event="c:ClearLookupId" action="{!c.handleAccountIdClear}"/>
+<div class="slds">
+<!-- Lookup component -->
+<c:LightLookupCmpnew label="Account" pluralLabel="Accounts" sObjectAPIName="Account"
+listIconSVGPath="/resource/SLDS_STATIC_RESOURCE/assets/icons/standard-sprite/svg/symbols.svg#account"
+listIconClass="slds-icon-standard-account"
+recordId="{!v.recordId}"
+/> 
+<div class="slds-form-element">
+<label class="slds-form-element__label" for="fName">First Name</label>
+<div class="slds-form-element__control">
+<ui:inputText aura:id="fName" class="slds-input" value="{!v.firstName}"/>
+</div>
+</div>
+<div class="slds-form-element">
+<label class="slds-form-element__label" for="lName">Last Name</label>
+<div class="slds-form-element__control ">
+<ui:inputText aura:id="lName" class="slds-input" value="{!v.lastName}"/>
+</div>
+</div>
+<ui:button aura:id="submitButton" label="Submit" press="{!c.saveContact}"/>
+ 
+ 
+<aura:if isTrue="{!v.contId!=null}">
+<SPAN>
+Created Record Id : {!v.contId}
+<force:recordView recordId="{!v.contId}" />
+</SPAN>
+</aura:if>
+</div>
+</aura:component>

@@ -1,0 +1,32 @@
+<apex:page showHeader="false" standardController="Opportunity" standardStylesheets="false" sidebar="false"
+           applyHtmlTag="false" applyBodyTag="false" docType="html-5.0" extensions="myControllerExtension">
+           <apex:form >
+           
+           <table>
+               <tr>
+               <td>
+                      <apex:pageBlock >
+               <apex:pageBlockSection ><apex:outputField label="Group1" value="{!Opportunity.name}" />
+               </apex:pageBlockSection>
+           </apex:pageBlock>     
+               </td>
+               <td>
+               <apex:pageBlock >
+               <apex:pageBlockSection >
+               <apex:outputField label="Group2" value="{!Opportunity.name}" />
+                
+               </apex:pageBlockSection>
+           </apex:pageBlock>
+               </td>
+               </tr>
+           </table>
+           
+           
+           
+
+        
+        
+</apex:form>
+
+
+</apex:page>

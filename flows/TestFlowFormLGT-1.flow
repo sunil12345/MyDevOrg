@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <interviewLabel>TestFlowFormLGT {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>TestFlowFormLGT</label>
+    <processType>Flow</processType>
+    <screens>
+        <name>First_Screen</name>
+        <label>First Screen</label>
+        <locationX>276</locationX>
+        <locationY>46</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Hi</name>
+            <fieldText>Hi Welcome</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+    </screens>
+    <startElementReference>First_Screen</startElementReference>
+</Flow>

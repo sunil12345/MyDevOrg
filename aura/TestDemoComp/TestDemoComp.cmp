@@ -1,0 +1,11 @@
+<aura:component implements="flexipage:availableForAllPageTypes" extensible="true" access="global">
+       <!-- <ltng:require scripts="{!join(',', 
+        $Resource.jquery224, 
+        $Resource.jqueryui1120 + '/jquery-ui-1.12.0.custom/jquery-ui.min.js',
+        '/support/console/36.0/integration.js')}" "/>
+    
+    <div id="someDiv" aura:id="someDiv"/> -->
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+</aura:component>

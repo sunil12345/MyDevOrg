@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <interviewLabel>UserUpdate {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>UserUpdate</label>
+    <processType>Flow</processType>
+    <recordUpdates>
+        <name>User_Update</name>
+        <label>User Update</label>
+        <locationX>143</locationX>
+        <locationY>206</locationY>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>userRecordId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>UserPermissionsKnowledgeUser</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>User</object>
+    </recordUpdates>
+    <startElementReference>User_Update</startElementReference>
+    <variables>
+        <name>userRecordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

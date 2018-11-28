@@ -1,0 +1,8 @@
+<aura:component access="global">
+    <aura:dependency resource="markup://force:navigateToComponent" type="EVENT"/>
+	<aura:dependency resource="markup://force:navigateToURL" type="EVENT"/>
+
+    <aura:registerEvent name="navigateToURL" type="force:navigateToURL" />
+    <aura:registerEvent name="navigateToComponent" type="force:navigateToComponent" />
+	<button class="slds-button slds-button_neutral" onclick="{!c.navigateToURL}">Edit</button> 
+</aura:component>

@@ -1,0 +1,5 @@
+<apex:page standardController="Lead">
+  
+  
+  This is for Sample Page!!!!
+</apex:page>

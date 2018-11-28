@@ -1,0 +1,24 @@
+<apex:page standardController="Account" extensions="IAS_Cost_Cloud_Service_Log_Ext" >
+    <apex:form >
+        <apex:pageBlock title="Monthly Cost Of Cloud Service Request Logs" >
+            <apex:pageMessages />
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!saveCostServiceLogs}"/>        
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable id="costservicelogTable" value="{!CostServiceLogs}"  var="cost">
+            
+            
+                <apex:column width="5%" headerValue="Cost Log#">
+                    <apex:outputLink value="/{!cost.Id}" target="_blank">
+                        <apex:outputText value="{!cost.Name}" />
+                    </apex:outputLink>           
+                </apex:column>
+                             
+                <apex:column width="8%" headerValue="Approve/Reject Cost">
+                   <apex:inputField value="{!cost.Status__c}" required="true"/> 
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

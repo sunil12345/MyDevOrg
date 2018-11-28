@@ -1,0 +1,58 @@
+<apex:page > 
+    <script src="/soap/ajax/40.0/connection.js" type="text/javascript"></script> 
+    <script type="text/javascript"> 
+
+    function doTest() { 
+    clearMessage(); 
+    
+    sforce.connection.sessionId = '{!$Api.Session_ID}'; 
+    
+    var targetEndpointUrl = "http://scooterlabs.com/echo"; 
+    var boundary = "blob"; 
+    
+    var data = ""; 
+    data += "--" + boundary + "\r\n"; 
+    data += 'content-disposition: form-data; ' + 'name="' + 'file' + '"; ' + 'filename="' + 'test.xml' + '"\r\n'; 
+    data += 'Content-Type: ' + 'text/xml' + '\r\n'; 
+    data += '\r\n'; 
+    data += '<test>test</test>' + '\r\n'; 
+    data += "--" + boundary + "\r\n"; 
+    data += 'content-disposition: form-data; name="' + 'description' + '"\r\n'; 
+    data += '\r\n'; 
+    data += 'ABCD' + "\r\n"; 
+    data += "--" + boundary + "--"; 
+    
+        sforce.connection.remoteFunction({ 
+            url : targetEndpointUrl, 
+            requestHeaders: { 
+            "Content-Type" : "multipart/form-data; boundary=" + boundary 
+            }, 
+            requestData: data, 
+            method: "POST", 
+            onSuccess : function(response) { 
+            renderMessage("OK:" + response); 
+            }, 
+            onFailure : function(response) {
+            //ProxyServlet uses HttpServletRequest.getInputStream() for copying the request body to the target endpoint. 
+            //- In this scenario, ProxyServlet can't get the request body because . 
+            renderMessage("Failed:" + response) 
+            } 
+        }); 
+    } 
+
+
+    function renderMessage(message) { 
+        var msgDiv = document.getElementById('message'); 
+        msgDiv.innerText = message; 
+    } 
+    function clearMessage() { 
+        renderMessage(''); 
+    } 
+</script> 
+
+<body> 
+<div id="message"></div> 
+<input type="button" value="TEST" onclick="doTest()"/> 
+</body> 
+
+</apex:page>

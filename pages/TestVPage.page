@@ -1,0 +1,9 @@
+<apex:page id="MultiPicklistTest" lightningStylesheets="true" standardController="Account" renderAs="pdf">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection >
+                <apex:outputText value="{!Account.Name}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

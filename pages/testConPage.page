@@ -1,0 +1,12 @@
+<apex:page standardController="Contact">
+  <script>
+  document.getElementsByName('inlineEditSave')[0].onclick = function(){
+ if(accstatus.value=='Locked'){
+   var userchoice =confirm('Are you sure you want to lock the Account?');
+   if(userchoice){sfdcPage.save(); return userchoice;}
+   else{sfdcPage.revert(); return userchoice;}
+ }
+ else{sfdcPage.save(); return userchoice;}
+};
+  </script>
+</apex:page>

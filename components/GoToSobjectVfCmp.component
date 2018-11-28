@@ -1,0 +1,33 @@
+<apex:component >
+    <apex:includeScript value="/lightning/lightning.out.js" />
+    <apex:includeScript value="/soap/ajax/32.0/apex.js"/>
+    <apex:includeScript value="/soap/ajax/32.0/connection.js"/>
+    <apex:includeLightning />
+    <apex:attribute name="recId" description="recid" type="String" required="false"/>
+
+    <script>
+    
+        function goToSObject(event){
+            var context = "{!$User.UIThemeDisplayed}";
+            var parameterVal="{!$CurrentPage.parameters.parameterVal}";
+            var recId="{!recId}";
+            console.log(context);
+            if((context == 'Theme4t' || context == 'Theme4d') && sforce.one!=undefined) {
+                // VF in S1 or LEX
+                if(recId!=null && recId!=undefined && recId.trim()!=''){
+                    sforce.one.navigateToSObject(recId);
+                }
+                else if(parameterVal==='calendar'){
+                    sforce.one.back(false);
+                }
+                else {
+                    sforce.one.navigateToURL('#/n/Activity_Overview');
+                }
+            } else {
+                // VF in Classic
+                console.log('recId==>'+recId);
+                window.location.assign("/{!recId}");
+            }
+        }
+    </script>
+</apex:component>

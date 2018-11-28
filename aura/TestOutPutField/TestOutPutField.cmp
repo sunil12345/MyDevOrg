@@ -1,0 +1,8 @@
+<aura:component controller="JediLight" implements="flexipage:availableForAllPageTypes,force:appHostable"> 
+<aura:attribute name="user" type="User" default="{ 'sobjectType' : 'User' }" /> 
+<aura:handler name="init" value="{!this}" action="{!c.doInit}"></aura:handler> 
+
+<force:inputField aura:id="UserName" value="{!v.user.Name}" /> 
+<force:outputField aura:id="UserId" value="{!v.user.Id}" /> 
+
+</aura:component>

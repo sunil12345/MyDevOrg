@@ -1,0 +1,33 @@
+<apex:page standardController="Contact" showHeader="true" showChat="false" sidebar="true">
+    <apex:form >
+    <apex:pageBlock mode="edit" title="Edit Contact">
+        <apex:pageBlockButtons location="both">
+            <apex:commandButton value="Save" action="{!Save}"  />
+            <apex:commandButton value="Cancel" action="{!Cancel}"  />
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection title="Contact Information" columns="2" collapsible="true">
+            <apex:inputField id="cName" value="{!Contact.Name}"/>
+            <apex:inputField id="cAccount" value="{!Contact.Account.Name}"/>
+            <apex:inputField id="cPhone" value="{!Contact.Phone}"/>
+            <apex:inputField id="cHomePhone" value="{!Contact.HomePhone}"/>
+            <apex:inputField id="cMobilePhone" value="{!Contact.MobilePhone}"/>
+            <apex:inputField id="cTitle" value="{!Contact.Title}"/>
+            <apex:inputField id="cOtherPhone" value="{!Contact.OtherPhone}"/>
+            <apex:inputField id="cDepartment" value="{!Contact.Department}"/>
+            <apex:inputField id="cBirthDate" value="{!Contact.BirthDate}"/>
+            <apex:inputField id="cEmail" value="{!Contact.Email}"/>
+            <apex:inputField id="cReportsTo" value="{!Contact.ReportsToId}"/>
+            <apex:inputField id="cAssistantPhone" value="{!Contact.AssistantPhone}"/>
+            <apex:inputField id="cLeadSource" value="{!Contact.LeadSource}"/>
+            
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="Address Information">
+            <apex:inputField id="cMailingStreet" value="{!Contact.MailingStreet}"/>        
+            <apex:inputField id="cMailingCity" value="{!Contact.MailingCity}"/>        
+            <apex:inputField id="cMailingState" value="{!Contact.MailingState}"/>        
+            <apex:inputField id="cMailingCountry" value="{!Contact.MailingCountry}"/>        
+            <apex:inputField id="cMailingPostalCode" value="{!Contact.MailingPostalCode}"/>        
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

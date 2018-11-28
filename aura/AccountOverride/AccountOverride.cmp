@@ -1,0 +1,19 @@
+<aura:component description="AccountOverride"
+                implements="force:hasRecordId,lightning:actionOverride,lightning:hasPageReference" 
+                controller="AccountOverrideController">
+    <lightning:navigation aura:id="navService"/>       
+    <aura:handler name="change" value="{!v.pageReference}" action="{!c.pageReferenceChanged}" />
+    <aura:attribute name="onlySetAfterSave" type="String" 
+                    description="This attribute is only set after a successful save. It shouldn't be populated on page load."/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/> 
+    
+    <div class="slds-box slds-theme_default">
+        <div>
+            <lightning:input aura:id="accountInput" label="New Account"/>
+            <lightning:button label="Save" onclick="{!c.onSaveClick}"/>
+        </div>
+        <div>v.recordId = {!v.recordId}</div>
+        <div>v.onlySetAfterSave = {!v.onlySetAfterSave}</div>
+        <div>v.pageReference.attributes.actionName = {!v.pageReference.attributes.actionName}</div>
+    </div>
+</aura:component>

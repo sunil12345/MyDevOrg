@@ -1,0 +1,5 @@
+<aura:component implements="force:appHostable,force:hasRecordId,flexipage:availableForRecordHome,lightning:actionOverride"  access="global" >
+    <aura:attribute name="recordId" type="Id"/>
+    <aura:attribute name="userContext" type="String"/>
+    <c:RiskProfileModel />
+</aura:component>

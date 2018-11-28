@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <interviewLabel>TestFlow1 {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>TestFlow1</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>ContactUpdate</name>
+        <label>ContactUpdate</label>
+        <locationX>471</locationX>
+        <locationY>118</locationY>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ContactId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>CSAT_Sent_Time__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Contact</object>
+    </recordUpdates>
+    <startElementReference>ContactUpdate</startElementReference>
+    <variables>
+        <name>ContactId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <interviewLabel>TeamMemberRole Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>TeamMemberRole Flow</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>CheckAccountTeam_member</name>
+        <label>CheckAccountTeam member</label>
+        <locationX>242</locationX>
+        <locationY>124</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>0017F0000033AXsc</stringValue>
+            </value>
+        </filters>
+        <object>AccountTeamMember</object>
+        <outputAssignments>
+            <assignToReference>varTeammember</assignToReference>
+            <field>TeamMemberRole</field>
+        </outputAssignments>
+    </recordLookups>
+    <startElementReference>CheckAccountTeam_member</startElementReference>
+    <variables>
+        <name>varTeammember</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

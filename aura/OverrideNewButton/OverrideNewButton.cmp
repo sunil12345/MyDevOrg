@@ -1,0 +1,49 @@
+<aura:component CONTROLLER="ACCLISTCONTROLLER" implements="force:lightningQuickActionWithoutHeader,lightning:actionOverride,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName"
+                access="global" ACCESS="GLOBAL" >
+    <aura:attribute name="recordid" type="id" />
+    <aura:handler name="init" value="{!this}" action="{!c.doinit}" />
+    
+    <aura:attribute name="contacts" type="contact"
+                    default="{ 'sobjectType': 'contact',                           
+                             'Email': '',
+                             'Name': '',
+                             'Level__c': '',
+                             
+                             }"/>
+    
+    <div style="height:100px;" aria-hidden="true">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open" >    
+            <div class="slds-modal__container" style="top:18%;">
+                <!--Header changes-->   
+                <header  class="slds-modal__header">
+                    
+                    <h2 class="slds-text-heading--medium">
+                        Create Partner Support Record Id is {!v.recordId}</h2>   
+                    <ui:outputText class="form-control" aura:id="recid" value="{!v.recordId}" />
+                    
+                </header >
+             </div>   
+        </section>
+       </div>
+        
+                
+    <div class="slds-form-element__control">
+                                    
+                                
+                                <div class="slds-form-element__control">
+                                    <ui:inputText aura:id="manager" label="Alliance Manager"
+                                                  class="slds-input"
+                                                  labelClass="slds-form-element__label"
+                                                  value="{!v.contacts.Email}"/>
+                                    
+                                </div>
+    </div>
+    <div class="slds-form-element__control">
+                                    <ui:inputText aura:id="manager" label="Alliance Manager"
+                                                  class="slds-input"
+                                                  labelClass="slds-form-element__label"
+                                                  value="{!v.contacts.Level__c}"/>
+                                    
+                                </div>
+    	
+</aura:component>

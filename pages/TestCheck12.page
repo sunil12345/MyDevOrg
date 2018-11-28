@@ -1,0 +1,8 @@
+<apex:page title="Notes and Attachments" standardController="Contact">
+
+
+    <div class="divTestClass">
+    <chatter:feed entityId="{!$User.Id}" /> 
+    </div>
+    Test -- <apex:relatedList id="notes1" list="AttachedContentNotes" />
+</apex:page>

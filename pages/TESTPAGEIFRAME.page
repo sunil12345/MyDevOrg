@@ -1,0 +1,8 @@
+<apex:page >
+ 
+ <apex:form >  
+    <apex:iframe id="appframe" src="https://sunilpaldomain-dev-ed--c.ap5.visual.force.com/001" height="500px" width="500px" title="Scheduler App" rendered="true"/>
+
+  </apex:form>
+
+</apex:page>

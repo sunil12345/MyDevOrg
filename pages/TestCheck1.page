@@ -1,0 +1,22 @@
+<apex:page standardController="Account" ><!--extensions="RiskProfileModelController" action="{!updateRP}">-->
+<apex:includeLightning />
+    
+   <script>
+        $Lightning.use("c:TestAppnew", function() {
+            $Lightning.createComponent(
+                "c:checkCMPRedirect",
+                {recordId:"{!Account.Id}",
+                userContext:"{!$User.UIThemeDisplayed }"},                 
+                "modelDiv",
+                function(cmp) {
+                    console.log("Component created!");
+                });
+            });
+    </script>
+    
+    
+    
+    
+    
+    <div id="modelDiv"></div>
+</apex:page>

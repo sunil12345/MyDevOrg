@@ -1,0 +1,4 @@
+<design:component>
+    <design:attribute name="fieldSource" label="Field Source" datasource="Compact Layout,Full Layout,Field APIs" required="true"/>
+    <design:attribute name="fields" label="Field APIs" description="If your Field Source is Field APIs, put a comma separated list of Field API Names here." placeholder="Name,Test_Auto_Number__c,Test_Currency__c,Test_Date__c,Test_Lookup_Account__c,Test_Formula_Checkbox__c,Test_Checkbox__c"/>
+</design:component>

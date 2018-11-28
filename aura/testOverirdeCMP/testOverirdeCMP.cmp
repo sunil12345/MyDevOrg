@@ -1,0 +1,22 @@
+<aura:component  implements="force:lightningQuickAction,flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSObjectName"  access="global">
+    <aura:attribute name="fieldSource" type="string" required="true" default=""/>
+    <!--<aura:attribute name="objectAPIName" type="string" required = "true" default="Opportunity"/>-->
+    <aura:attribute name="columns" type="integer" default="2" required="true"/>
+    <aura:attribute name="fields" type="string" default="Name,AccountNewField__c"/>
+    <aura:attribute name="fieldsList" type="string[]"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+   
+   
+    
+    <!--<aura:if isTrue="{!v.fieldSource == 'Field APIs'  }">-->
+        <lightning:recordForm 
+            objectApiName="{!v.sObjectName}"
+            recordId ="{!v.recordId}"
+            fields="{!v.fieldsList}"                   
+            columns="{!v.columns}"
+            mode="view"
+        />
+   <!-- </aura:if>-->
+
+</aura:component>

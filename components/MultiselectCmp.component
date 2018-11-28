@@ -1,0 +1,3 @@
+<apex:component >
+    <apex:attribute name="leftLabel" description="Label on left listbox." type="String" />
+</apex:component>

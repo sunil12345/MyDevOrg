@@ -1,0 +1,11 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+    <aura:attribute name="hash" type="String" />
+    <aura:handler event="aura:locationChange" action="{!c.locationChange}" />
+    
+    <ul>
+    	<li><a href="#tab1">Tab 1</a></li>
+        <li><a href="#tab2">Tab 2</a></li>
+    </ul>
+    
+    <div>{!v.hash}</div>
+</aura:component>

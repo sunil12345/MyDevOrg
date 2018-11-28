@@ -1,0 +1,23 @@
+<apex:page controller="AccountPageController">
+    
+    <apex:form >
+        <apex:pageBlock >
+            
+            <apex:commandButton value="Save" action="{!SaveRecord}"/>
+        </apex:pageBlock>
+
+        <apex:pageBlock title="Accounts">
+            <apex:pageBlockTable value="{!Accounts}" var="acc">
+            <apex:column width="5%" headerValue="Cost Log#">
+                   
+                        <apex:inputField value="{!acc.Name}"/>
+                        <apex:inputField value="{!acc.Status__c}"/>
+                          
+                </apex:column>
+                
+                
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+    
+</apex:page>

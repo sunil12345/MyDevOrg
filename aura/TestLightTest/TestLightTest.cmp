@@ -1,0 +1,6 @@
+<aura:component controller="ctrlRequestOrderSchedule" implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" >
+    <aura:attribute name="OutputText" type="String" default="Saving..."/>
+
+<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+   {!v.OutputText}
+</aura:component>

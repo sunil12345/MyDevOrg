@@ -1,0 +1,6 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global">
+	<!--<a href="https://jackson.salesforce.com/one/one.app#/sObject/00OR0000000PCHYMA4/view?t=1479844235107&fv0=">Test Link</a>-->
+    
+    <lightning:button variant="brand" label="Submit" onclick="{!c.gotoURL}" />
+    <lightning:formattedUrl value="https://sunilpaldomain-dev-ed.lightning.force.com/one/one.app?source=aloha#/sObject/00O7F000007LE9ZUAW/view?fv0=New%20Customer" label="Test Link Lightning B" />
+</aura:component>

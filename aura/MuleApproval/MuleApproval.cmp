@@ -1,0 +1,44 @@
+<aura:component access="global" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" controller="MuleForwardTool3">
+    <aura:attribute name="caseObj" type="Case" default="{ 'sobjectType': 'Case'}" />
+    <aura:attribute name="baseURL" type="String" default="" />
+    <aura:attribute name="errorMessage" type="String" default="" />
+    <aura:attribute name="isMuleApprovable" type="boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    
+    <lightning:button aura:id="muleApproval" class="slds-button slds-button_brand" variant="neutral" label="Mule Approval"
+                      value="" iconName="" iconPosition="" onclick="{!c.openModal}" />
+    
+    <section aura:id="Modalbox" role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-modal_medium">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Mule Details</h2>
+            </header>
+            <aura:renderIf isTrue="{!v.isMuleApprovable}">
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <span><!--<c:Form_FieldSet recordId="{!v.recordId}" sObjectName="Case" fieldSetName="Mule_Info" showSave="false"/>--></span>  
+                    <span>  Please follow the <a href="https://docs.google.com/document/d/1zXgj-MZysv7cFOCnYOeG0zs2QsdTZeb6TYp00ilLnZQ" target="_blank">Mule Guidelines Checklist</a>
+                    </span>
+                    <br/><br/>
+                    <lightning:recordEditForm aura:id="test"
+                                              objectApiName="Case"
+                                              recordId="{! v.recordId }"
+                                              >
+                                              <!--onerror="{! c.onEditFormError }"> -->
+                        <lightning:messages />
+                        <lightning:inputField aura:id="muleSubj" fieldName="CaseNumber" />
+                        <br/>
+                        
+                        <lightning:inputField aura:id="prodId" fieldName="Product1__c" />
+                        <br/>
+                        
+
+                    </lightning:recordEditForm>
+                </div>
+            </aura:renderIf>
+            
+            
+        </div>
+    </section>
+    <div aura:id="Modalbackdrop" class="slds-backdrop "></div>
+     
+</aura:component>

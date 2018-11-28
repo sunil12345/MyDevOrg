@@ -1,0 +1,21 @@
+<apex:page > 
+<apex:includeScript value="/support/console/<current version number>/integration.js"/> 
+<script type="text/javascript"> 
+var primaryTabName = 'Acme'; 
+function alertSuccess (result) { 
+if(result.success) { 
+alert('Operation is SUCCESS'); 
+} 
+else { 
+alert('Operation FAIL'); 
+} 
+} 
+//open primary tab 
+function openPrimaryTab() { 
+sforce.console.openPrimaryTab(null, '<your current app server url>/home/home.jsp', true, 
+'SFDC', alertSuccess, primaryTabName); 
+} 
+</script> 
+<div id="result"/> 
+<A HREF="#" onClick="openPrimaryTab();return false">openPrimaryTab</A> <br/> 
+</apex:page>

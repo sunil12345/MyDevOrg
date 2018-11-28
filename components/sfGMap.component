@@ -1,0 +1,51 @@
+<!--
+/**
+@ name            sfGMap
+@ author          http://www.aslambari.com
+@ date            03 April, 2011
+@ description     The component which wraps all the gmap scripts and code and shows the map
+*/
+-->
+<apex:component >
+<apex:attribute name="width" type="integer" description="width of the map in pixcel"/>
+<apex:attribute name="height" type="integer" description="height of the map in pixcel"/>
+<apex:attribute name="addressmodel" type="AddressModel" description="all addresses need to show on map"/>
+<apex:attribute name="uselatlng" type="boolean" description="check to see if use lat lng or address"/>
+<apex:attribute name="zoom" type="integer" description="zoom level for google map"/>
+<apex:attribute name="default" type="string" description="default address where map will be center on load"/>
+<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=API_KEY"></script>
+<script type="text/javascript" src="{!URLFOR($Resource.gMap,'gMap/jquery.min.js')}"></script>
+<script type="text/javascript" src="{!URLFOR($Resource.gMap,'gMap/jquery.gmap-1.1.0.js')}"></script>
+<style>
+.sfgmap{
+    border: 1px solid #000;
+
+}
+</style>
+<div id="map" style="width:{!width}px;height:{!height}px;" class="sfgmap"></div>
+<script type="text/javascript">
+var addresses = new Array();
+var defaultaddress = '';
+if("{!default}" != ""){
+    defaultaddress = "{!default}";
+}else{
+    defaultaddress = "{!addressmodel.default}";
+}
+<apex:repeat value="{!addressmodel.addresslist}" var="address">
+    var addObject = new Object();
+    if("{!uselatlng}" == "false"){
+        addObject.address = "{!address.address}";
+    }else{
+        addObject.latitude = "{!address.lat}";
+        addObject.longitude = "{!address.lng}";
+    }
+    addObject.html = "{!address.info}";
+    addresses.push(addObject);
+</apex:repeat>
+$(function() {
+    $("#map").gMap({ markers: addresses,
+                  address: defaultaddress,
+                  zoom: {!zoom} });
+});
+</script>
+</apex:component>

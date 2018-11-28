@@ -1,0 +1,157 @@
+<apex:page standardController="Quote" renderAs="pdf"  showHeader="false" sidebar="false" applyBodyTag="false" applyHtmlTag="false">
+<html>
+        <head>
+            <style>
+                @page {
+                   /* size: letter;*/
+                    margin: 17mm;
+                    /*@top-center {
+                        content: "Cox Auto Logo";
+                    }*/
+                    @bottom-center {
+                        content: "Page " counter(page) " of " counter(pages);
+                    }
+                }
+
+                .page-break {
+                    display:block;                  
+                    page-break-after: auto;
+
+                }
+                
+
+                .headerRow .TableTitle {
+                   background-color: #D3D3D3 !important; 
+                }
+                .labelInfo{font-weight: bold;padding-right: 15px;}
+
+                .labelInfoRight{font-weight: bold;padding-left: 45px; padding-right: 35px;}
+
+                .PGStyle1{
+                    margin-top: 25px;
+                    width="100%" 
+                }
+                .redLine {
+                 border-bottom: 2px solid #D3D3D3;
+                 }
+               
+            </style>
+        </head>
+    
+   
+
+    <!-- <apex:sectionHeader title="Quote " subtitle="{!Quote.Name}" />-->
+    <apex:form >
+
+       
+       
+                <div >
+                    <!-- <apex:image url="{!$Resource.CoxAutoLogo}" width="40%" height="40%"/>-->
+                     </div>
+
+          <!-- Overriding the Save button in the controller, but using the standard Cancel button -->
+            <!-- <apex:pageBlockButtons >
+            
+                <apex:commandbutton value="Save" action="{!Save}" />
+                <apex:commandButton value="Cancel" action="{!Cancel}" />
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockSection title="Quote Details" columns="2">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Record Type" for="rc" />
+                    <apex:inputField value="{!Quote.RecordTypeId}" id="rc" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Owner" for="owner" />
+                    <apex:inputField value="{!Quote.OwnerId}" id="Owner" />
+                </apex:pageBlockSectionItem>
+                
+            </apex:pageBlockSection> -->
+                
+            
+           
+         <apex:pageBlock >   
+            <apex:pageBlockSection >
+                <apex:panelGrid columns="2" styleClass="PGStyle1"  >
+                        <!--HEADER-->
+                        
+                        <apex:panelGroup >
+                            <apex:outputLabel value="Created Date" for="cs" styleClass="labelInfoRight"/>
+                            <apex:outputField value="{!quote.CreatedDate}" id="cd"  />
+                        </apex:panelGroup>
+
+                        <apex:panelGroup >
+                            <apex:outputLabel value="Contact Name" for="cn" styleClass="labelInfo" />
+                            <apex:outputField value="{!quote.Contact.Name}" id="cn" />
+                        </apex:panelGroup>
+                        <apex:panelGroup >
+                            <apex:outputLabel value="Expiration Date" for="ed" styleClass="labelInfoRight" />
+                            <apex:outputField value="{!quote.ExpirationDate}" id="ed" />
+                        </apex:panelGroup>
+                        <apex:panelGroup >
+                            <apex:outputLabel value="Phone" for="ph" styleClass="labelInfo"/>
+                            <apex:outputField value="{!quote.Phone}" id="ph" />
+                        </apex:panelGroup>
+                        <apex:panelGroup >
+                            <apex:outputLabel value="Prepared By" for="pb" styleClass="labelInfoRight"/>
+                            <apex:outputField value="{!quote.LastModifiedBy.Name}" id="pb" />
+                        </apex:panelGroup>
+                         <apex:panelGroup >
+                            <apex:outputLabel value="Email" for="email " styleClass="labelInfo"/>
+                            <apex:outputField value="{!quote.Email}" id="email" />
+                        </apex:panelGroup>
+                         <apex:panelGroup >                     
+                        </apex:panelGroup>
+                </apex:panelGrid>
+            </apex:pageBlockSection> 
+
+                           
+
+
+
+             <!--<apex:outputText label="Ship To" value="" for="ship" ></apex:outputText>-->
+
+            <table  width="100%">
+                <tr>                    
+                    <td>
+                        <apex:pageBlockSection title="Ship To" >
+                            <apex:panelGrid columns="1" >   
+                                <apex:panelGroup >                                                          
+                                    <apex:outputField value="{!quote.ShippingName}" id="pb1" /><br/>
+                                    <apex:outputField value="{!quote.ShippingStreet}" id="pb2" /><br/>
+                                    <apex:outputField value="{!quote.ShippingCity}" id="pb3" /><br/>
+                                    <apex:outputField value="{!quote.ShippingState}" id="pb4" /><br/>
+                                    <apex:outputField value="{!quote.ShippingPostalCode}" id="pb5" />                     
+                                </apex:panelGroup>
+                            </apex:panelGrid>
+                        </apex:pageBlockSection>
+                    </td>
+                   
+
+                    <td>
+                        <apex:pageBlockSection title="Bill To">
+                            <apex:panelGrid columns="1">   
+                                <apex:panelGroup >                        
+                                    <apex:outputField value="{!quote.BillingName}" id="pb1" /><br/>
+                                    <apex:outputField value="{!quote.BillingStreet}" id="pb2" /><br/>
+                                    <apex:outputField value="{!quote.BillingCity}" id="pb3" /><br/>
+                                    <apex:outputField value="{!quote.BillingState}" id="pb4" /><br/>
+                                    <apex:outputField value="{!quote.BillingPostalCode}" id="pb5" />                     
+                                </apex:panelGroup>
+                            </apex:panelGrid>
+                        </apex:pageBlockSection>
+                    </td>
+                </tr>
+            </table>
+
+
+               
+
+        </apex:pageBlock>
+                  
+    </apex:form>
+    </html>
+    
+    
+    
+</apex:page>

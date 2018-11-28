@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <interviewLabel>Partent Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Partent Flow</label>
+    <processType>Flow</processType>
+    <screens>
+        <name>Screen_1</name>
+        <label>Screen 1</label>
+        <locationX>284</locationX>
+        <locationY>74</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Enter_Your_Name</name>
+            <dataType>String</dataType>
+            <fieldText>Enter Your Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Enter_Your_Company_Name</name>
+            <dataType>String</dataType>
+            <fieldText>Enter Your Company Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+    </screens>
+    <startElementReference>Screen_1</startElementReference>
+    <variables>
+        <name>GetCompanyName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>Enter_Your_Company_Name</elementReference>
+        </value>
+    </variables>
+    <variables>
+        <name>GetName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>Enter_Your_Name</elementReference>
+        </value>
+    </variables>
+    <variables>
+        <name>GetNameCheck</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>Enter_Your_Name</elementReference>
+        </value>
+    </variables>
+    <variables>
+        <name>GetParentValue</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>Enter_Your_Name</elementReference>
+        </value>
+    </variables>
+</Flow>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <interviewLabel>New Flow Validation {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>New Flow Validation</label>
+    <processType>Flow</processType>
+    <screens>
+        <name>Test_SCreen</name>
+        <label>Test SCreen</label>
+        <locationX>455</locationX>
+        <locationY>64</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>First_Name</name>
+            <dataType>String</dataType>
+            <fieldText>First Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+    </screens>
+    <startElementReference>Test_SCreen</startElementReference>
+</Flow>

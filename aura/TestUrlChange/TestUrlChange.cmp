@@ -1,0 +1,7 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+    <div class="slds-text-color_error">https://www.lightningdesignsystem.com/utilities/text/</div>
+    <div class="slds-text-color--error">https://archive-2_1_4.lightningdesignsystem.com/components/utilities/text</div>
+    <br/>
+    <div class="slds-text-heading_large">https://www.lightningdesignsystem.com/utilities/text/</div>
+    <div class="slds-text-heading--large">https://archive-2_1_4.lightningdesignsystem.com/components/utilities/text</div>
+</aura:component>

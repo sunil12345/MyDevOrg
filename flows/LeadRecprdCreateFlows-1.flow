@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <dynamicChoiceSets>
+        <name>LeadSourceCheck</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>LeadSource</picklistField>
+        <picklistObject>Lead</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>LeadStatusCheck</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Status</picklistField>
+        <picklistObject>Lead</picklistObject>
+    </dynamicChoiceSets>
+    <interviewLabel>LeadRecprdCreateFlows {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>LeadRecprdCreateFlows</label>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>Lead_Create</name>
+        <label>Lead Create</label>
+        <locationX>359</locationX>
+        <locationY>57</locationY>
+        <assignRecordIdToReference>LeadRecord</assignRecordIdToReference>
+        <connector>
+            <targetReference>LeadCreated_Message</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Company</field>
+            <value>
+                <elementReference>Lead_Company</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LastName</field>
+            <value>
+                <elementReference>Lead_last_name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LeadSource</field>
+            <value>
+                <elementReference>Lead_Source</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status</field>
+            <value>
+                <elementReference>Lead_Status</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Lead</object>
+    </recordCreates>
+    <screens>
+        <name>Lead_Entery</name>
+        <label>Lead Entery</label>
+        <locationX>60</locationX>
+        <locationY>60</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Lead_Create</targetReference>
+        </connector>
+        <fields>
+            <name>Lead_last_name</name>
+            <dataType>String</dataType>
+            <fieldText>Lead last name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Lead_Company</name>
+            <dataType>String</dataType>
+            <fieldText>Lead Company</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Lead_Status</name>
+            <choiceReferences>LeadStatusCheck</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Lead Status</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Lead_Source</name>
+            <choiceReferences>LeadSourceCheck</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Lead Source</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+    </screens>
+    <screens>
+        <name>LeadCreated_Message</name>
+        <label>LeadCreated Message</label>
+        <locationX>340</locationX>
+        <locationY>196</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>LeadrecordMessageBox</name>
+            <fieldText>------&gt;&gt;&gt;&gt;&gt;&gt;{!LeadRecord} &lt;---------</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+    </screens>
+    <startElementReference>Lead_Entery</startElementReference>
+    <variables>
+        <name>LeadRecord</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

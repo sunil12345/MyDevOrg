@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Call_Apex_Class</name>
+        <label>Call Apex Class</label>
+        <locationX>191</locationX>
+        <locationY>171</locationY>
+        <actionName>FlowCallClassCheck</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Create_Accouont_Record</targetReference>
+        </connector>
+        <inputParameters>
+            <name>strName</name>
+            <value>
+                <elementReference>Page_Name</elementReference>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>TestOutPot</assignToReference>
+            <name>output</name>
+        </outputParameters>
+    </actionCalls>
+    <interviewLabel>CallPageNameFlow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>CallPageNameFlow</label>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>Create_Accouont_Record</name>
+        <label>Create Accouont Record</label>
+        <locationX>251</locationX>
+        <locationY>355</locationY>
+        <assignRecordIdToReference>AccountId</assignRecordIdToReference>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <stringValue>&apos;Test Flow Account&apos;</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordCreates>
+    <screens>
+        <name>Screen1</name>
+        <label>Screen1</label>
+        <locationX>207</locationX>
+        <locationY>20</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Call_Apex_Class</targetReference>
+        </connector>
+        <fields>
+            <name>Page_Name</name>
+            <dataType>String</dataType>
+            <fieldText>Page Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+    </screens>
+    <startElementReference>Screen1</startElementReference>
+    <variables>
+        <name>AccountId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>TestOutPot</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

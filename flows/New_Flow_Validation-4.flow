@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <interviewLabel>New Flow Validation {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>New Flow Validation</label>
+    <processType>Flow</processType>
+    <recordLookups>
+        <name>AccLoo</name>
+        <label>AccLoo</label>
+        <locationX>167</locationX>
+        <locationY>94</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Test_SCreen</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>0017F000009vEuc</stringValue>
+            </value>
+        </filters>
+        <object>Account</object>
+        <outputReference>Accnt</outputReference>
+        <queriedFields>shorta_name__c</queriedFields>
+    </recordLookups>
+    <screens>
+        <name>Test_SCreen</name>
+        <label>Test SCreen</label>
+        <locationX>455</locationX>
+        <locationY>64</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>First_Name</name>
+            <dataType>String</dataType>
+            <fieldText>First Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+            <validationRule>
+                <errorMessage>Thes is a issue</errorMessage>
+                <formulaExpression>{!First_Name} &lt;&gt; {!Accnt.shorta_name__c}</formulaExpression>
+            </validationRule>
+        </fields>
+    </screens>
+    <startElementReference>AccLoo</startElementReference>
+    <variables>
+        <name>Accnt</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+</Flow>

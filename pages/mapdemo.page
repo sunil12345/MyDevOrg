@@ -1,0 +1,13 @@
+<!--
+/**
+@ name            mapdemo
+@ author          http://www.aslambari.com
+@ date            03 April, 2011
+@ description     The demo page which uses the map component to show map
+*/
+-->
+<apex:page controller="mapdemocontroller" sidebar="false" showHeader="false">
+<apex:sectionHeader title="sfGMap" subtitle="My Accounts"/>
+<c:sfGMap width="600" height="400" addressmodel="{!addressmodel}" zoom="4" uselatlng="false">
+</c:sfGMap>
+</apex:page>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <interviewLabel>TESTCHECK {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>TESTCHECK</label>
+    <processType>Flow</processType>
+    <screens>
+        <name>TESTSCREEN</name>
+        <label>TESTSCREEN</label>
+        <locationX>157</locationX>
+        <locationY>94</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>CHCEK</name>
+            <fieldText>Hi THIS IS DONE</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+    </screens>
+    <startElementReference>TESTSCREEN</startElementReference>
+</Flow>

@@ -1,0 +1,7 @@
+<apex:page standardController="Account" >
+TEST1
+    
+    
+    
+    <div id="modelDiv"></div>
+</apex:page>

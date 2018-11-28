@@ -1,0 +1,10 @@
+<apex:page >
+     
+
+    
+   <script>
+   
+    var globalStaticResourcePath = '{!URLFOR($Resource.TestJsRes)}';
+    alert('**globalStaticResourcePath *'+globalStaticResourcePath )
+</script>
+</apex:page>

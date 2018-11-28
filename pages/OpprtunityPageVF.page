@@ -1,0 +1,6 @@
+<apex:page standardController="Opportunity" showHeader="true" 
+      tabStyle="opportunity" >
+      
+         <apex:relatedList List="CombinedAttachments" subject="{!opportunity}" id="attachmentsDiv1" /> 
+      <apex:relatedList list="CombinedAttachments" id="attachmentsDiv"/>
+</apex:page>

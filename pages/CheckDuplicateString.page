@@ -1,0 +1,15 @@
+<apex:page title="Test" controller="checkDuplicate">
+
+    <apex:form >
+    <apex:actionFunction action="{!redirect}" name="checkDupe" reRender="divTestClass"/>
+
+    <div class="divTestClass">
+        
+       <apex:inputText value="{!inputValue}" id="theTextInput"/>
+         <apex:outputText value="{!previeResult}" /> 
+         <apex:commandButton value="Check Duplicate" onclick="checkDupe();"/>
+
+    </div>
+    </apex:form>
+    
+</apex:page>

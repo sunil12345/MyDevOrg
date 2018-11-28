@@ -1,0 +1,41 @@
+<apex:page controller="MultiselectExampleController">
+    
+    <apex:form >
+    
+    <apex:pageBlock >
+            <apex:pageBlockSection columns="2">
+            <apex:pageblockSectionItem >
+                <apex:outputLabel value="State"/>
+            </apex:pageblockSectionItem>        
+            <apex:pageblockSectionItem >                
+                <apex:selectList size="1" value="{!state}">
+                    <apex:selectOptions value="{!states}"/>
+                    <apex:actionSupport event="onchange" reRender="a, b"/>
+                </apex:selectList>                
+            </apex:pageblockSectionItem>
+               
+            <apex:outputPanel style="display: none;">      
+            <apex:pageblockSectionItem >
+                                             
+                <apex:selectList size="1" value="{!city}" id="a" style="dispaly:none">
+                    <apex:selectOptions value="{!cities}"/>
+                </apex:selectList>
+            </apex:pageblockSectionItem>  
+            </apex:outputPanel>          
+        </apex:pageBlockSection>        
+        </apex:pageBlock>
+        <apex:pageBlock title="Contacts">
+        
+            <c:MultiselectPicklist leftLabel="Available Contacts"
+                leftOptions="{!allContacts}"
+                rightLabel="Selected Contacts"
+                rightOptions="{!selectedContacts}"
+                size="14"
+                width="150px"
+                id="b"/>
+                
+           
+        </apex:pageBlock>
+    </apex:form>
+    <apex:outputText >{!message}</apex:outputText>
+</apex:page>

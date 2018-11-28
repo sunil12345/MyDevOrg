@@ -1,0 +1,23 @@
+<apex:page standardController="Account" >
+    <apex:includeLightning />
+    
+        <div id="lightningComponent" />
+    
+    <script>
+   
+var recordId = '{!Account.Id}';
+var myUserContext = "{!$User.UITheme}";
+
+
+$Lightning.use("c:SimilarPropertiesApp", function() {
+            $Lightning.createComponent(
+                "c:SimilarProperties",
+                {recordId:"{!Account.Id}"},                 
+                "lightningComponent",
+                function(cmp) {
+                    console.log("Component created!");
+                });
+            });
+  
+</script>
+</apex:page>

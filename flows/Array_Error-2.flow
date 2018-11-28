@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <interviewLabel>Array Error {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Array Error</label>
+    <processType>Flow</processType>
+    <recordLookups>
+        <name>GetContacts</name>
+        <label>GetContacts</label>
+        <locationX>451</locationX>
+        <locationY>67</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <filters>
+            <field>Name</field>
+            <operator>Contains</operator>
+            <value>
+                <elementReference>ContactId</elementReference>
+            </value>
+        </filters>
+        <object>Contact</object>
+        <outputReference>GetContactsCollection</outputReference>
+        <queriedFields>Name</queriedFields>
+    </recordLookups>
+    <screens>
+        <name>Step_1</name>
+        <label>Step-1</label>
+        <locationX>171</locationX>
+        <locationY>75</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>GetContacts</targetReference>
+        </connector>
+        <fields>
+            <name>ContactId</name>
+            <dataType>String</dataType>
+            <fieldText>ContactId</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+    </screens>
+    <startElementReference>Step_1</startElementReference>
+    <variables>
+        <name>GetContactsCollection</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Contact</objectType>
+    </variables>
+</Flow>

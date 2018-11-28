@@ -1,0 +1,5 @@
+<apex:page standardController="Account" tabStyle="Account" >
+    <flow:interview name="CallPageNameFlow" finishLocation="{!URLFOR('/apex/TestCloneVFInline')}">
+        <apex:param name="TestOutPot" value="TestOnline"/>
+    </flow:interview>
+</apex:page>

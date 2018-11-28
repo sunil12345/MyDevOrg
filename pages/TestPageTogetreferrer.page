@@ -1,0 +1,4 @@
+<apex:page standardController="Account" extensions="TestPageTogetreferrerClass">
+  
+  CHCEK ONCE PAGE
+</apex:page>

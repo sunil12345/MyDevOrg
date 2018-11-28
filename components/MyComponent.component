@@ -1,0 +1,4 @@
+<apex:component controller="MyComponentController">
+   
+  
+</apex:component>

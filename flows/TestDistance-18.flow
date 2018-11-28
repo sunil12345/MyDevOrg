@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <formulas>
+        <name>CheckFormula</name>
+        <dataType>Number</dataType>
+        <expression>DISTANCE(17.78, 7.765, &apos;mi&apos;)</expression>
+        <scale>2</scale>
+    </formulas>
+    <interviewLabel>TestDistance {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>TestDistance</label>
+    <processType>Flow</processType>
+    <screens>
+        <name>Screen1</name>
+        <label>Screen1</label>
+        <locationX>235</locationX>
+        <locationY>32</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Latitude</name>
+            <dataType>String</dataType>
+            <fieldText>Latitude</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Longi</name>
+            <dataType>String</dataType>
+            <fieldText>Longi</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+    </screens>
+    <screens>
+        <name>Screen2</name>
+        <label>Screen2</label>
+        <locationX>332</locationX>
+        <locationY>200</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>ResultCheck</name>
+            <fieldText>---&gt; {!CheckFormula}</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+    </screens>
+    <startElementReference>Screen2</startElementReference>
+    <variables>
+        <name>NumberDistance</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <scale>2</scale>
+    </variables>
+</Flow>

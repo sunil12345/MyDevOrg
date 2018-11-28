@@ -1,0 +1,8 @@
+<apex:page standardController="Account" extensions="EditRelationshipFormController" showQuickActionVfHeader="False">
+<apex:form id="theForm">
+
+                                    <apex:commandButton id="lexCancelButton" action="{!cancel}" value="Cancel" immediate="true" styleClass="slds-button slds-button--neutral" />
+  </apex:form>  
+  
+                         
+</apex:page>

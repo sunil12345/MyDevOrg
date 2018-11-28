@@ -1,0 +1,15 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	
+    
+   <div class="slds-p-around--large" >
+        <p>Sit nulla est11</p>
+      </div>
+    
+    <div class="slds-p-around--small" >
+        <p> Test Sit nulla 22</p>
+      </div>
+    
+    
+    
+    
+</aura:component>

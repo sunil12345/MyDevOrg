@@ -1,0 +1,8 @@
+<apex:page standardController="Contact">
+
+<apex:form >
+Test
+<!--apex:inputField value="{!Account.Date_Terminated__c}"  /-->
+
+</apex:form>
+</apex:page>

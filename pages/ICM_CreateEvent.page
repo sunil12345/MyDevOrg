@@ -1,0 +1,29 @@
+<apex:page standardController="Event">
+    <script>
+
+      
+        function redirect(){
+           var url = location.href;
+            alert('url ' + url);
+            var index1 = url.indexOf('apex/ICM_CreateEvent');
+            alert('index 1' + index1);
+            var url1 = '';
+            
+            if(index1 > 0) {
+                url1 = url.substr(0, index1);
+                alert('url1 ' + url1);
+            }    
+            
+            sforce.one.navigateToURL(url1 +'00U/e?saveURL=/apex/Test2ndPage&nooverride=1');
+
+           
+            
+            
+        }
+        
+        
+        window.onload = redirect;
+        
+    </script>
+
+</apex:page>

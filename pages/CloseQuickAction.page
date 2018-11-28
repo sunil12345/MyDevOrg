@@ -1,0 +1,26 @@
+<apex:page standardController="Case" extensions="CloseCaseExtension" >
+
+<apex:pageMessages />
+
+ <apex:includeScript value="{!$Resource.UtilJS}" />
+ <script>
+ $j = jQuery.noConflict();
+ $j(document).ready(function() {
+ $j( document.getElementById('page1:form1:pg1:testSample')).click(function(){
+     alert('Bingo');
+     });
+ });
+ function myFunction(){
+     alert('myFunction');
+ }
+ </script>
+        
+<apex:form >
+
+<apex:actionFunction name="callActionToUpdateCase" action="{!closeCase}" onComplete="alert('******FIRST******');"/>
+</apex:form>
+
+
+    
+
+</apex:page>

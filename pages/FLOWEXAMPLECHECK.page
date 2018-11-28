@@ -1,0 +1,5 @@
+<apex:page standardController="Contact" extensions="ContactFlowController" tabStyle="Contact" >
+<flow:interview name="CallPageNameFlow"  finishLocation="{!FinishPage}" >
+
+</flow:interview>
+</apex:page>

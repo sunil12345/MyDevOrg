@@ -1,0 +1,7 @@
+<aura:component controller="CloseCaseExtension" implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" access="global" >
+	<aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler event="force:refreshView" action="{!c.init}" />
+    
+     <aura:attribute name="case" type="Case"/>
+    <aura:attribute name="recordId" type="string"/>
+</aura:component>

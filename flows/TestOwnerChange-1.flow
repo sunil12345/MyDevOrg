@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <interviewLabel>TestOwnerChange {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>TestOwnerChange</label>
+    <processType>Flow</processType>
+    <recordLookups>
+        <name>SearchQueue</name>
+        <label>SearchQueue</label>
+        <locationX>483</locationX>
+        <locationY>79</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>TestQueue</stringValue>
+            </value>
+        </filters>
+        <object>Group</object>
+        <outputAssignments>
+            <assignToReference>VarGroupId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+    </recordLookups>
+    <screens>
+        <name>First_Screen</name>
+        <label>First Screen</label>
+        <locationX>270</locationX>
+        <locationY>91</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>SearchQueue</targetReference>
+        </connector>
+        <fields>
+            <name>CaseId</name>
+            <dataType>String</dataType>
+            <fieldText>CaseId</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+    </screens>
+    <startElementReference>First_Screen</startElementReference>
+    <variables>
+        <name>VarGroupId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

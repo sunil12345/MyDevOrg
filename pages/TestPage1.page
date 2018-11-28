@@ -1,0 +1,11 @@
+<apex:page standardController="Account" docType="html-5.0" standardStylesheets="true" tabStyle="Account" showHeader="true" sidebar="true" >
+
+
+<apex:form >
+<apex:pageBlock title="Call Edit">
+
+
+    <apex:inputField value="{!Account.TestDate__c}"/>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

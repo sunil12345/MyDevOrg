@@ -1,0 +1,12 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global"  > 
+    Test
+   
+    <c:svg class="slds-icon slds-icon-text-default slds-icon--x-medium" xlinkHref="/sfsites/c/resource/LXT_Manage_slds/assets/icons/utility-sprite/svg/symbols.svg#search" ariaHidden="False"/>
+           
+    
+    Test2
+     <c:svg class="slds-icon slds-icon-text-default slds-icon--x-medium" xlinkHref="/sfsites/c/resource/LXT_Manage_slds/assets/icons/utility-sprite/svg/symbols.svg#salesforce1" ariaHidden="False"/>
+                      
+    
+    
+</aura:component>

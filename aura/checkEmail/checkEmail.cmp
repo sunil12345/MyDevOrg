@@ -1,0 +1,26 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	
+    
+  	<aura:attribute name="conAddr" type="Contact"/>
+    <aura:attribute name="memberName" type="String"/>
+    <aura:attribute name="memberNumber" type="String"/>
+    <aura:attribute name="memberId" type="String"/>
+    <aura:attribute name="recTypeId" type="String"/>
+    <aura:attribute name="error" type="Boolean" default="false"/>    
+	<aura:attribute name="newContact" type="Contact" default="{ 
+                    	'sobjectType': 'Contact',
+                        'Email': '',
+                        'Name__c': ''}" access="global"/>
+    
+    <div class="slds-theme_default">
+   		<lightning:layout horizontalAlign="center" multipleRows="true">
+			<lightning:layoutItem class="slds-form-element" size="12" mediumDeviceSize="6" largeDeviceSize="6" padding="around-small">
+                <lightning:input type="email" label="Email Address" aura:id="emailAdd1" required="true" value="{!v.newContact.Email}"  messageWhenBadInput="You must say foo"/>
+            </lightning:layoutItem>
+            
+        </lightning:layout>
+        
+    </div>
+    
+
+</aura:component>

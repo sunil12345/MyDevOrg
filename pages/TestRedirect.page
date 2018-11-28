@@ -1,0 +1,20 @@
+<apex:page standardController="Vehicle__c" standardStylesheets="false" sidebar="false" applyBodyTag="false">
+    <apex:includeScript value="/lightning/lightning.out.js" />
+    
+    <div id="lightning" />
+
+    <script>
+    var recordId = '{!Vehicle__c.Id}';
+        $Lightning.use("c:CaseEntryApp", function() {
+          $Lightning.createComponent(
+            "c:CaseEntryForm",
+            {recordId: recordId},
+            "lightning",
+            function(cmp) {
+                // do some stuff
+                console.log("Component created!");
+                console.log(cmp);
+            });
+        });
+    </script>
+</apex:page>

@@ -1,0 +1,10 @@
+<aura:component controller="elfL1" implements="forceCommunity:availableForAllPageTypes,force:appHostable">
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+        <aura:attribute name="account" type="Account" default="{ sobjectType: 'Account'}" />
+    <form class="elfForm">
+        <div>
+       ---: {!v.account.AccountLook__c}
+        Test --- > <force:outputField value="{!v.account.AccountLook__c}" /> 
+        </div>
+    </form>
+</aura:component>

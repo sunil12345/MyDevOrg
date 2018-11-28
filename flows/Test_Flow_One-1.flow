@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <choices>
+        <name>CHECK_NO_LAST</name>
+        <choiceText>CHECK NO LAST</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>YES NO</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>CHECK_YES_LAST</name>
+        <choiceText>CHECK YES LAST</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>YES CHECK</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Click_No</name>
+        <choiceText>Click No</choiceText>
+        <dataType>Boolean</dataType>
+    </choices>
+    <choices>
+        <name>Click_Noo1</name>
+        <choiceText>Click Noo1</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>No</stringValue>
+        </value>
+    </choices>
+    <choices>
+        <name>Click_Yes</name>
+        <choiceText>Click Yes</choiceText>
+        <dataType>Boolean</dataType>
+    </choices>
+    <choices>
+        <name>Click_Yes1</name>
+        <choiceText>Click Yes1</choiceText>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Yes</stringValue>
+        </value>
+    </choices>
+    <formulas>
+        <name>CheckName</name>
+        <dataType>String</dataType>
+        <expression>IF({!CHECK_OPTIONS} == {!CHECK_YES_LAST}, &apos;YES&apos;, &apos;No&apos;)</expression>
+    </formulas>
+    <interviewLabel>Test Flow One {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Test Flow One</label>
+    <processType>Flow</processType>
+    <screens>
+        <name>Please_Post_Inputs</name>
+        <label>Please Post Inputs</label>
+        <locationX>376</locationX>
+        <locationY>72</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Show_Formula</targetReference>
+        </connector>
+        <fields>
+            <name>CHECK_OPTIONS</name>
+            <choiceReferences>CHECK_YES_LAST</choiceReferences>
+            <choiceReferences>CHECK_NO_LAST</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>CHECK OPTIONS</fieldText>
+            <fieldType>RadioButtons</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+    </screens>
+    <screens>
+        <name>Show_Formula</name>
+        <label>Show Formula</label>
+        <locationX>643</locationX>
+        <locationY>80</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Shoing</name>
+            <fieldText>{!CheckName}</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+    </screens>
+    <startElementReference>Please_Post_Inputs</startElementReference>
+</Flow>

@@ -1,0 +1,7 @@
+<aura:component controller="caseController"  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	
+        <aura:attribute name="recordId" type="Id"/>
+<aura:attribute name="caseObj" type="Case" default="{ 'sobjectType': 'Case' }"/>
+<!-- lookup to lead on account object -->
+Test2: <force:inputField aura:id="caseStatus" value="{!v.caseObj.Status}"/>
+</aura:component>

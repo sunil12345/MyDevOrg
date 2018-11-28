@@ -1,0 +1,17 @@
+<apex:page > 
+<apex:includeLightning /> 
+This is a testnew testasdasdas
+<div id="lightning" /> 
+
+<script> 
+$Lightning.use("c:TestOutPutFieldApp", function() { 
+$Lightning.createComponent("c:TestOutPutField", 
+{}, 
+"lightning", 
+function(cmp) { 
+console.log("Component created!"); 
+console.log(cmp); 
+}); 
+}); 
+</script> 
+</apex:page>

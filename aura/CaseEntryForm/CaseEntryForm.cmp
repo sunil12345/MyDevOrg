@@ -1,0 +1,13 @@
+<aura:component implements="lightning:actionOverride,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+
+    <aura:attribute name="newCase" type="Vehicle__c" default="{
+                             'sobjectType' : 'Vehicle__c',
+                             'Awning__c' : ''}"/>
+    
+    <div align="center">
+             
+			  <lightning:button variant="brand" class="slds-button slds-button--neutral" title="CancelCASE"  onclick="{!c.cancelCase}">Cancel CASE</lightning:button>             
+         </div>
+    
+	
+</aura:component>

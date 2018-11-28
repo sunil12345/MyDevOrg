@@ -1,0 +1,18 @@
+<apex:component controller="MyComponentController">
+    
+  <apex:attribute name="pageController1" 
+      type="PageControllerBase" 
+      assignTo="{!pageController}" 
+      required="true" 
+      description="The controller for the page." />
+	 
+      
+    
+    <apex:attribute name="objAccount" type="Account" assignTo="{!objAccountNew}" description="CCRA non standard auto LOB"/> 
+
+    
+    <apex:inputField value="{!objAccount.Name}" styleClass="col2" > 
+                    
+   </apex:inputField>
+                   
+</apex:component>

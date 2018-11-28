@@ -1,0 +1,5 @@
+<apex:page standardController="Account" extensions="PersonAccountFlowExtension">
+    <flow:interview interview="{!createContractFromAccount}" name="CallPageNameFlow" finishLocation="{!finishPageRef}">
+        <apex:param name="varAccountID" value="{!Account.Id}"/>
+    </flow:interview>
+</apex:page>

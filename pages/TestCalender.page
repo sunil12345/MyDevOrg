@@ -1,0 +1,7 @@
+<apex:page > 
+<apex:pageBlock > 
+<apex:pageBlockSection > 
+<object data="https://calendar.google.com/calendar/embed?src=info%40alc4seniors.com&ctz=America/Los_Angeles" style="border-width:0" width="800" height="650" scrolling="no"></object> 
+</apex:pageBlockSection> 
+</apex:pageBlock> 
+</apex:page>

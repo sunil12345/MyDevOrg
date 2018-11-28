@@ -1,0 +1,18 @@
+<apex:page >
+
+     <A HREF="#" onClick="testGetFocusedPrimaryTabId();return false">
+         Click here to get the focused primary tab ID</A> 
+
+    <apex:includeScript value="/support/console/42.0/integration.js"/>
+    <script type="text/javascript">
+        function testGetFocusedPrimaryTabId() {
+            sforce.console.getFocusedPrimaryTabId(showTabId);
+        }
+        var showTabId = function showTabId(result) {
+            //Display the tab ID
+            alert('Tab ID: ' + result.id);
+        };
+        
+  </script>
+
+</apex:page>

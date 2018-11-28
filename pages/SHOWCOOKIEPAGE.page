@@ -1,0 +1,22 @@
+<apex:page id="TestSFCookiePage" doctype="html-5.0" controller="TestCookieController" action="{!TestCookie}" standardstylesheets="false" showheader="false" cache="false" sidebar="false">  
+
+ <apex:define name="header"> 
+
+  <script type="text/javascript">
+
+            
+
+        var cookie1 = { testUID: "UID1"};
+
+        
+
+        document.cookie = 'apex__sfCookie=' + encodeURIComponent(JSON.stringify(cookie1)) + ';path=/';
+
+   </script>
+
+ </apex:define>
+<!-- Begin Default Content REMOVE THIS -->
+  <h1>Congratulations</h1>
+  This is your new Page
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

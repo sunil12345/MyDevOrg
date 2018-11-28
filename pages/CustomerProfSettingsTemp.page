@@ -1,0 +1,118 @@
+<!-- 
+    Name: CustomerProfileSettings.vfp
+    Controller: CustomerProfileSettingsController
+    Description: The admin configurable page to update the configuration for the Customer Profile Settings batch job.
+    Jira: IT-1924
+    Modification History:
+    Author    Jira              Date        Description
+ -->
+
+<apex:page StandardController="Case" extensions="TempCustomerProfileSettingsController" sidebar="false">
+    <style type="text/css">
+        #mask{
+            display:none;
+            position:absolute;
+            margin:auto;
+            top:0;
+            left:0;
+            opacity:0.6;
+            filter:alpha(opacity=60);
+            background-color:#000000;
+            width:100%;
+            height:100%;
+            z-index:100;
+            float:left;
+            overflow:hidden;
+        }
+        .customPopup{
+            text-align:center;
+            background-color: #333333;
+            //border-style: solid;
+            //border-width: 2px;
+            left: 33%;
+            padding:2px;
+            position: fixed;
+            z-index: 9999;
+            //width: 700px;
+            margin: 0 auto;
+            color: #DDDDDD;
+        }
+    </style>
+    <div id="mask"></div>
+    <apex:form style="width:700px;">
+        <apex:outputPanel id="popup">
+            <script>
+             if(!{!displayPopUp}){
+                 document.getElementById("mask").style.display = 'none';
+             }
+            </script>
+            <apex:outputPanel styleClass="customPopup" layout="block" rendered="{!displayPopUp}">
+                <script>
+                    if({!displayPopUp}){
+                        document.getElementById("mask").style.display = 'block';
+                        
+                        if(window.innerHeight > document.getElementById("mask").clientHeight){
+                            document.getElementById("mask").style.height = window.innerHeight+'px';
+                        }
+                    }
+                    
+                    function confirmDelete(tempReason){
+                        //var conf = confirm("Are you sure?");
+                        alert('hi');
+                        return conf;
+                    }
+                </script>
+                <apex:pageblock >
+                    
+                    
+                    <apex:pageblocksection columns="1">
+                        <apex:pageblocksectionitem >
+                            <apex:outputLabel value="Case Reason" for="caseReasonDropDown"/>
+                            <apex:selectList value="{!reason}" size="1" id="caseReasonDropDown">
+                                <apex:selectOptions value="{!caseReasonList}"/>   
+                                <apex:actionSupport event="onchange"  action="{!fetchSubReasons}" status="status" />         
+                            </apex:selectList>
+                        </apex:pageblocksectionitem>
+                        <apex:pageblocksectionitem >
+                            <apex:outputLabel value="Choose Sub-Reasons" for="subReason"/>
+                            <apex:outputPanel id="subReason">
+                                <c:MultiselectPicklist leftLabel="Available Sub Reasons"
+                                 leftOptions="{!availableSubReasonList}"
+                                 rightLabel="Selected Sub Reasons"
+                                 rightOptions="{!selectedSubReasonList}"
+                                 size="14"
+                                 width="150px"/>
+                                <apex:actionStatus id="status">
+                                    <apex:facet name="start">
+                                        <span style="color:Red;">Processing..</span> 
+                                    </apex:facet>
+                                </apex:actionStatus>
+                            </apex:outputPanel>
+                        </apex:pageblocksectionitem>
+                        
+                    </apex:pageblocksection> 
+                    
+                    
+                 </apex:pageblock>
+             </apex:outputPanel>
+         </apex:outputPanel>
+                    
+    </apex:form>
+    <apex:form id="form">
+        <apex:pageMessages />
+        <apex:pageBlock id="x">
+            
+              
+                <apex:pageblocksection title="Case Reasons Criteria" columns="1">   
+                    <apex:commandLink value="New" action="{!newRow}">
+                    </apex:commandLink>
+                    
+                </apex:pageblocksection>
+                <apex:pageBlockButtons >
+                    
+                    <apex:commandButton value="Cancel" action="{!cancel}"/>
+                </apex:pageBlockButtons>
+            </apex:pageBlock>
+        
+    </apex:form>
+ </apex:page>

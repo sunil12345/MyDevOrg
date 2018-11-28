@@ -1,0 +1,12 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="DisplayCaseController">
+    
+    <aura:attribute name="recordId" type="Id" />
+    
+    <aura:attribute name="record" type="case[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <aura:iteration items="{!v.record}" var="record">
+        {!record.Subject}|||||{!record.Description}||||{!record.status}
+    </aura:iteration> 
+    
+</aura:component>
